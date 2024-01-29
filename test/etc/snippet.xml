@@ -1,0 +1,21 @@
+	<!-- Online Packages  -->
+	<script type="importmap">
+		{
+			"imports" : {
+				"three" : "https://unpkg.com/three@0.160.0/build/three.module.js",
+				"three/addons/" : "https://unpkg.com/three@0.160.0/examples/jsm/",
+				"gsap" : "https://unpkg.com/gsap@3.12.4/dist/gsap.js"
+			}
+		}
+	</script>
+	<!-- Offline Packages  -->
+	<script type="importmap">
+		{
+			"imports" : {
+				"three" : "./lib/three/build/three.module.js",
+				"three/addons/" : "./lib/three/examples/jsm/",
+				"cannon" : "./lib/cannon/build/cannon.js",
+				"gsap" : "./lib/GSAP/dist/gsap.js"
+			}
+		}
+	</script>

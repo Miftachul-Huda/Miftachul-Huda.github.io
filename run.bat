@@ -1,0 +1,2 @@
+cd docs
+five-server

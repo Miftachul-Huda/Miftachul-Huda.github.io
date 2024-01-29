@@ -19,5 +19,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": ["app"],
+	"typescript.disableAutomaticTypeAcquisition": true
 }

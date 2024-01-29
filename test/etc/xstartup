@@ -1,0 +1,7 @@
+#!/bin/bash
+[ -r ~/.Xresources ] && xrdb ~/.Xresources
+export PULSE_SERVER=tcp:127.0.0.1:4713
+export DISPLAY=127.0.0.1:0
+export ~/.Xauthority
+dbus-launch awesome &
+dbus-launch cairo-dock & 
