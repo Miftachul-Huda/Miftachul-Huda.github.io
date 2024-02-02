@@ -1,9 +1,16 @@
-import { Vector2 } from "three"
+import { Vector2 } from 'three'
 
 export default class Pointer extends Vector2 {
 
+	public static Instance
+
 	constructor() {
+
+		if ( Pointer.Instance ) return Pointer.Instance
+
 		super()
+		
+		Pointer.Instance = this
 		
 		document.addEventListener( 'mousemove', e => this.onPointerMove( e ) )
 

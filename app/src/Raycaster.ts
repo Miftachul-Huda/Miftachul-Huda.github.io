@@ -1,6 +1,6 @@
-import Camera from "./Camera"
-import Scene from "./Scene"
-import Pointer from "./Pointer"
+import Camera from './Camera'
+import Scene from './Scene'
+import Pointer from './Pointer'
 import { Object3D, Raycaster as raycaster } from 'three'
 
 export default class Raycaster extends raycaster {
@@ -23,7 +23,7 @@ export default class Raycaster extends raycaster {
 
 		this.setFromCamera( this.pointer, this.camera )
 
-		const object = this.intersectObjects( this.scene.children, true )
+		const object = this.intersectObjects( this.scene.children )
 	
 		if ( object.length > 0 ) {
 

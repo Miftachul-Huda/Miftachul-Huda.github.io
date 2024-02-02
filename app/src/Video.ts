@@ -1,35 +1,34 @@
-import Raycaster from "./Raycaster"
-import URLs from "./URLs"
+// import URLs from './URLs'
+// import Raycaster from './Raycaster'
 
 export default class Video {
 
-	
-	private list:Array<string>
-	private listAt:number
-	private raycaster:Raycaster
+	// private list:Array<string>
+	// private raycaster:Raycaster
+	public listAt:number
 	public el:HTMLVideoElement
 
-	constructor( raycaster:Raycaster ) {
+	constructor() {
 
 		this.el = document.createElement('video')
 		this.el.loop = true
 		this.el.playsInline = true
 
-		const url = new URLs
-		this.list = [
-			url.video.AgungTech,
-			url.video.BukuFisika,
-			url.video.Fuzzy,
-			url.video.Indiego,
-			url.video.KuisArab,
-			url.video.PhoneForest,
-			url.video.Restoran,
-			url.video.Videografi
-		]
 		this.listAt = 0
-		this.raycaster = raycaster
+		// const url = new URLs
+		// this.list = [
+		// 	url.video.AgungTech,
+		// 	url.video.BukuFisika,
+		// 	url.video.Fuzzy,
+		// 	url.video.Indiego,
+		// 	url.video.KuisArab,
+		// 	url.video.PhoneForest,
+		// 	url.video.Restoran,
+		// 	url.video.Videografi
+		// ]
+		// this.raycaster = raycaster
 
-		window.addEventListener( 'dblclick', () => this.next() )
+		// window.addEventListener( 'dblclick', () => this.next() )
 
 	}
 
@@ -40,17 +39,23 @@ export default class Video {
 
 	}
 
-	public next() {
+	public stop() {
 
-		const object = this.raycaster.object
+		this.el.pause()
 
-		if ( object && object.name == 'Monitor_Screen' ) {
-
-			this.change( this.list[ this.listAt ++ ] )
-
-		}
-
-		if ( this.listAt == this.list.length ) this.listAt = 0
-	
 	}
+
+	// private next() {
+
+	// 	const object = this.raycaster.object
+
+	// 	if ( object && object.name == 'Monitor_Screen' ) {
+
+	// 		this.change( this.list[ this.listAt ++ ] )
+
+	// 	}
+
+	// 	if ( this.listAt == this.list.length ) this.listAt = 0
+	
+	// }
 }

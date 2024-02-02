@@ -10,60 +10,61 @@ import Model from './Model'
 import Material from './Material'
 import UI from './UI'
 import Video from './Video'
+import Animate from './Animate'
+import FpsLimiter from './utils/FpsLimiter'
+import Image from './Image'
 
 export default class Main {
 
-	private controls:Controls
-	private raycaster:Raycaster
-	private renderer:Renderer
-	private stats:Stats
-	private ui:UI
+	private object = {
+		root : document.documentElement,
+		container : document.createElement( 'container' ),
+		loader : document.querySelector( 'loader' ),
+	}
+	private fps = 60
+	private isLoaded	= false
+	private loader		= new Loader( this.object.loader )
+	private scene			= new Scene
+	private camera		= new Camera
+	private stats			= new Stats
+	private renderer 	= new Renderer( this.object.container, this.scene, this.camera )
+	private raycaster = new Raycaster( this.scene, this.camera )
+	private video 		= new Video()
+	private material 	= new Material( this.video.el )
+	private image 		= new Image( this.material, this.loader )
+	private model 		= new Model( this.scene, this.loader.glbLoader, this.material )
+	private controls 	= new Controls( this.camera.target, this.renderer.css2d.domElement, this.model )
+	private ui 				= new UI( this.scene, this.controls, this.image, this.video, this.material )
+	private animate 	= new Animate( this.object, this.controls, this.ui )
 	
 	constructor() {
 
-		const loader = new Loader
-		const scene = new Scene
-		const camera = new Camera
-		this.stats = new Stats
-		this.ui = new UI( scene, camera )
-		this.renderer = new Renderer( scene, camera )
-		this.raycaster = new Raycaster( scene, camera )
-		const video = new Video( this.raycaster )
-		const material = new Material( loader, video.el )
-		const model = new Model( scene, loader.glbLoader, material )
-		this.controls = new Controls( camera, this.renderer.domElement, model )
-		new Environment( scene, this.renderer, loader.texLoader )
+		new Environment( this.scene, this.renderer.webgl, this.loader.texLoader )
 
-		loader.onLoad = () => this.onLoad()
+		this.loader.onLoad = () => this.onLoad()
 
 	}
 
 	private onLoad() {
 
-			this.controls.lookAt.monitor()
+		if ( this.isLoaded ) return
 
-			const fps = ( 1 / 62 ) / 0.001
+		this.animate.onLoad()
 
-			requestAnimationFrame( time => this.update( fps, time ) )
+		new FpsLimiter( deltaTime => this.update( deltaTime ), this.fps )
 
-	}
-
-	private update( fps:number, time:number, tick:number = 0 ) {
-
-		if ( time - tick >= fps ) {
-
-			tick = time
-
-			this.controls.update()
-			this.raycaster.update()
-			this.renderer.update()
-			this.stats.update()
-			this.ui.update()
-
-		}
-
-		requestAnimationFrame( time => this.update( fps, time, tick ) )
+		this.isLoaded = true
 
 	}
 
+	private update( deltaTime:number ) {
+
+		this.camera.update( deltaTime )
+		this.controls.update()
+		this.raycaster.update()
+		this.renderer.update()
+		this.stats.update()
+		this.ui.update( deltaTime )
+		
+	}
 }

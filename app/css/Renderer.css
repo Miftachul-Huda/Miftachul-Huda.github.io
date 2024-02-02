@@ -1,0 +1,16 @@
+.webgl, .css2d, .css3d {
+	position: fixed;
+	top: 0;
+}
+
+.webgl {
+	z-index: 0;
+}
+
+.css2d {
+	z-index: 2;
+}
+
+.css3d {
+	z-index: 1;
+}

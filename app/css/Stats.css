@@ -1,0 +1,10 @@
+stats {
+	z-index: 3;
+	position: fixed;
+	right: 5px;
+	bottom: 0;
+	font-size: xx-small;
+	font-family: monospace;
+	color:antiquewhite;
+	user-select: none;
+}

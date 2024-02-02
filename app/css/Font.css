@@ -1,0 +1,28 @@
+@font-face {
+	font-family: Anurati;
+	src: url(../font/Anurati.otf) format('opentype');
+}
+@font-face {
+	font-family: Barlow-Bold;
+	src: url(../font/Barlow-Bold.ttf) format('truetype');
+}
+@font-face {
+	font-family: Barlow-Italic;
+	src: url(../font/Barlow-Italic.ttf) format('truetype');
+}
+@font-face {
+	font-family: ChelaOne;
+	src: url(../font/ChelaOne-Regular.ttf) format('truetype');
+}
+@font-face {
+	font-family: PTSans;
+	src: url(../font/PTSans-Regular.ttf) format('truetype');
+}
+@font-face {
+	font-family: PTSans-Bold;
+	src: url(../font/PTSans-Bold.ttf) format('truetype');
+}
+@font-face {
+	font-family: PTSans-BoldItalic;
+	src: url(../font/PTSans-BoldItalic.ttf) format('truetype');
+}

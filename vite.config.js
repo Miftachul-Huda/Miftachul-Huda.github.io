@@ -5,6 +5,12 @@ export default defineConfig({
 	publicDir : '../public',
 	build : {
 		outDir : '../docs',
-		emptyOutDir : true
+		emptyOutDir : true,
+		assetsDir : 'res',
+		assetsInlineLimit : 0, // 1024 * 300,
+		ssrEmitAssets : false,
+		ssrManifest : false,
+		sourcemap : false,
+		minify : 'esbuild',
 	}
 })

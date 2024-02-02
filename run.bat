@@ -1,2 +1,1 @@
-cd docs
-five-server
+http-server --cors -o -p 1911 docs

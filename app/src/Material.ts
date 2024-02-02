@@ -1,57 +1,41 @@
-import URLs from './URLs'
-import Loader from './Loader'
-import { FrontSide, MeshStandardMaterial, NoColorSpace, SRGBColorSpace, VideoTexture } from 'three'
+import { FrontSide, MeshStandardMaterial, SRGBColorSpace, VideoTexture } from 'three'
 
 export default class Material {
 
-	private url:URLs
-	private texLoader:Loader['texLoader']
-	private videoMap:VideoTexture
-	private videoEl:HTMLVideoElement
+	public screenVideoMap:VideoTexture
+	public changeScreenMap:Function
 	
-	constructor( loader:Loader, videoEl:HTMLVideoElement ) {
+	constructor( videoEl:HTMLVideoElement ) {
 
-		this.url = new URLs
-		this.texLoader = loader.texLoader
-		this.videoEl = videoEl
-		this.videoMap = new VideoTexture( this.videoEl )
+		this.screenVideoMap = new VideoTexture( videoEl )
 	
 	}
 
 	public monitor( screen:MeshStandardMaterial, display:MeshStandardMaterial, stand:MeshStandardMaterial ) {
-
-		const B_Map = this.texLoader.load( this.url.monitor.B_Map )
-		const M_Map = this.texLoader.load( this.url.monitor.M_Map )
-		const N_Map = this.texLoader.load( this.url.monitor.N_Map )
-		const R_Map = this.texLoader.load( this.url.monitor.R_Map )
 	
-		B_Map.colorSpace = SRGBColorSpace
-		B_Map.flipY = false
+		this.screenVideoMap.colorSpace = SRGBColorSpace
+		this.screenVideoMap.flipY = false
+		this.screenVideoMap.channel = 1
 	
-		M_Map.colorSpace = NoColorSpace
-		M_Map.flipY = false
-	
-		N_Map.colorSpace = NoColorSpace
-		N_Map.flipY = false
-	
-		R_Map.colorSpace = NoColorSpace
-		R_Map.flipY = false
-	
-		this.videoMap.colorSpace = SRGBColorSpace
-		this.videoMap.flipY = false
-		this.videoMap.channel = 1
-	
-		display.side = stand.side = screen.side = FrontSide
-		display.map = stand.map = B_Map
-		display.normalMap = stand.normalMap = screen.normalMap = N_Map
-		display.metalnessMap = stand.metalnessMap = screen.metalnessMap = M_Map
-		display.roughnessMap = stand.roughnessMap = screen.roughnessMap = R_Map
-	
+		display.side = stand.side = screen.side = FrontSide	
 		screen.toneMapped = false
 		screen.color.set( 0x000000 )
 		screen.emissive.set( 0xffffff )
-		screen.emissiveMap = this.videoMap
 		screen.emissiveIntensity = .7
 
+		this.changeScreenMap = map => {
+
+			screen.emissiveMap = map
+			
+		}
+
+		this.changeScreenMap( this.screenVideoMap )
+
 	}
+	public desk( desk_base:MeshStandardMaterial, desk_top:MeshStandardMaterial, desk_bottom:MeshStandardMaterial ) {
+
+		desk_base.side = desk_top.side = desk_bottom.side = FrontSide	
+		
+	}
+
 }

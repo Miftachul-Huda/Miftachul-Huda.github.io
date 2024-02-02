@@ -1,0 +1,93 @@
+label {
+	overflow: visible;
+	background-color: var(--label_bg_col);
+	background-blend-mode:darken;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 2px solid;
+	filter: blur(.5px);
+	transition: opacity .5s, background-color .5s;
+
+}
+label:hover {
+	background-color: var(--active_col);
+}
+label > name {
+	text-wrap: nowrap;
+	overflow: hidden;
+	position: absolute;
+	font-family: Barlow-Bold;
+	font-size: medium;
+	text-align: center;
+	padding: 2px 6px 5px 6px;
+	top: -45px;
+	background-color: var(--label_bg_col);
+	border-radius: 10px;
+	border: 2px solid;
+	opacity: 0;
+	transition: opacity .5s, top .5s;
+}
+ui[monitor] {
+	scale: 0;
+	position: fixed;
+	width: 0;
+	height: 0;
+	top: 0;
+	left: 50%;
+	overflow: visible;
+	transition: scale .5s;
+}
+ui[monitor] > list[top] {
+	overflow: hidden;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	margin: 0;
+	padding: 0;
+	border: 1px;
+	height: 28px;
+	align-content: center;
+}
+ui[monitor] > list[bottom] {
+	overflow: hidden;
+	position: fixed;
+	left: 10px;
+	top: 10px;
+	margin: 0;
+	padding: 0;
+	border: 1px;
+	height: 28px;
+	align-content: center;
+}
+ui[monitor] > list > item {
+	display: inline-flexbox;
+	cursor: pointer;
+	user-select: none;
+	width: 40px;
+	height: 40px;
+	margin: 0 2px;
+	padding: 4px 6px;
+	background-color: var(--label_bg_col);
+	font-size: small;
+	font-family: PTSans;
+	border-radius: 0;
+	transition: background .2s, color .2s;
+}
+ui[monitor] > list > item:hover,
+ui[monitor] > button:hover {
+	background-color: var(--label_active_bg_col);
+	color: var(--active_col)
+}
+ui[monitor] > button {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	transform: scaleY(5);
+	background-color: var(--label_bg_col);
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	transition: background .2s, color .2s, left .5s, opacity .5s;
+}
