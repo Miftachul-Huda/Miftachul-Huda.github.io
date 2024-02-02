@@ -10,25 +10,25 @@ devDependencies:
     version: 0.7.0
   '@theatre/r3f':
     specifier: ^0.7.0
-    version: 0.7.0(@react-three/fiber@8.15.15)(@theatre/core@0.7.0)(@theatre/studio@0.7.0)(react-dom@18.2.0)(react@18.2.0)(three@0.160.1)
+    version: 0.7.0(@react-three/fiber@8.15.16)(@theatre/core@0.7.0)(@theatre/studio@0.7.0)(react-dom@18.2.0)(react@18.2.0)(three@0.161.0)
   '@theatre/studio':
     specifier: ^0.7.0
     version: 0.7.0(@theatre/core@0.7.0)
   '@types/three':
-    specifier: ^0.160.0
-    version: 0.160.0
+    specifier: ^0.161.2
+    version: 0.161.2
   gsap:
     specifier: ^3.12.5
     version: 3.12.5
   maath:
     specifier: ^0.10.7
-    version: 0.10.7(@types/three@0.160.0)(three@0.160.1)
+    version: 0.10.7(@types/three@0.161.2)(three@0.161.0)
   three:
-    specifier: ^0.160.1
-    version: 0.160.1
+    specifier: ^0.161.0
+    version: 0.161.0
   three-mesh-ui:
     specifier: ^6.5.4
-    version: 6.5.4(three@0.160.1)
+    version: 6.5.4(three@0.161.0)
   typescript:
     specifier: ^5.3.3
     version: 5.3.3
@@ -252,8 +252,8 @@ packages:
     dev: true
     optional: true
 
-  /@react-three/fiber@8.15.15(react-dom@18.2.0)(react@18.2.0)(three@0.160.1):
-    resolution: {integrity: sha512-Z5POnzgpYxrgnYuiCv+8t7lpynEcGcn0/323kV1NtE7Cwq16aMqEuC6nF2Y/tK+crJpKNEqsRtvng/eJy0xxOA==}
+  /@react-three/fiber@8.15.16(react-dom@18.2.0)(react@18.2.0)(three@0.161.0):
+    resolution: {integrity: sha512-4f47K9e2mP8W/guNtu3e2J/Nt6GwKTsX/YP2dktPZRcpHYEsqfXCO8kSfvVMb+lQ8wR0HoFzggqdnGuhZaui0g==}
     peerDependencies:
       expo: '>=43.0'
       expo-asset: '>=8.4'
@@ -289,7 +289,7 @@ packages:
       react-use-measure: 2.1.1(react-dom@18.2.0)(react@18.2.0)
       scheduler: 0.21.0
       suspend-react: 0.1.3(react@18.2.0)
-      three: 0.160.1
+      three: 0.161.0
       zustand: 3.7.2(react@18.2.0)
     dev: true
 
@@ -409,7 +409,7 @@ packages:
       lodash-es: 4.17.21
     dev: true
 
-  /@theatre/r3f@0.7.0(@react-three/fiber@8.15.15)(@theatre/core@0.7.0)(@theatre/studio@0.7.0)(react-dom@18.2.0)(react@18.2.0)(three@0.160.1):
+  /@theatre/r3f@0.7.0(@react-three/fiber@8.15.16)(@theatre/core@0.7.0)(@theatre/studio@0.7.0)(react-dom@18.2.0)(react@18.2.0)(three@0.161.0):
     resolution: {integrity: sha512-ta4OO1bCZeeFvxm/pbPAVvDqng+t/D08aBWlNULFLoEsd/WWUItIUCEdQQR1MiYQ0WQTKpfyp4yXV98hZvCDuw==}
     peerDependencies:
       '@react-three/fiber': ^8.13.6
@@ -419,12 +419,12 @@ packages:
       react-dom: '>=17.0.2'
       three: '>=0.155.0'
     dependencies:
-      '@react-three/fiber': 8.15.15(react-dom@18.2.0)(react@18.2.0)(three@0.160.1)
+      '@react-three/fiber': 8.15.16(react-dom@18.2.0)(react@18.2.0)(three@0.161.0)
       '@theatre/core': 0.7.0
       '@theatre/studio': 0.7.0(@theatre/core@0.7.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      three: 0.160.1
+      three: 0.161.0
     dev: true
 
   /@theatre/studio@0.7.0(@theatre/core@0.7.0):
@@ -447,17 +447,17 @@ packages:
   /@types/react-reconciler@0.26.7:
     resolution: {integrity: sha512-mBDYl8x+oyPX/VBb3E638N0B7xG+SPk/EAMcVPeexqus/5aTpTphQi0curhhshOqRrc9t6OPoJfEUkbymse/lQ==}
     dependencies:
-      '@types/react': 18.2.48
+      '@types/react': 18.2.51
     dev: true
 
   /@types/react-reconciler@0.28.8:
     resolution: {integrity: sha512-SN9c4kxXZonFhbX4hJrZy37yw9e7EIxcpHCxQv5JUS18wDE5ovkQKlqQEkufdJCCMfuI9BnjUJvhYeJ9x5Ra7g==}
     dependencies:
-      '@types/react': 18.2.48
+      '@types/react': 18.2.51
     dev: true
 
-  /@types/react@18.2.48:
-    resolution: {integrity: sha512-qboRCl6Ie70DQQG9hhNREz81jqC1cs9EVNcjQ1AU+jH6NFfSAhVVbrrY/+nSF+Bsk4AOwm9Qa61InvMCyV+H3w==}
+  /@types/react@18.2.51:
+    resolution: {integrity: sha512-XeoMaU4CzyjdRr3c4IQQtiH7Rpo18V07rYZUucEZQwOUEtGgTXv7e6igQiQ+xnV6MbMe1qjEmKdgMNnfppnXfg==}
     dependencies:
       '@types/prop-types': 15.7.11
       '@types/scheduler': 0.16.8
@@ -472,8 +472,8 @@ packages:
     resolution: {integrity: sha512-pXNfAD3KHOdif9EQXZ9deK82HVNaXP5ZIF5RP2QG6OQFNTaY2YIetfrE9t528vEreGQvEPRDDc8muaoYeK0SxQ==}
     dev: true
 
-  /@types/three@0.160.0:
-    resolution: {integrity: sha512-jWlbUBovicUKaOYxzgkLlhkiEQJkhCVvg4W2IYD2trqD2om3VK4DGLpHH5zQHNr7RweZK/5re/4IVhbhvxbV9w==}
+  /@types/three@0.161.2:
+    resolution: {integrity: sha512-DazpZ+cIfBzbW/p0zm6G8CS03HBMd748A3R1ZOXHpqaXZLv2I5zNgQUrRG//UfJ6zYFp2cUoCQaOLaz8ubH07w==}
     dependencies:
       '@types/stats.js': 0.17.3
       '@types/webxr': 0.5.12
@@ -579,14 +579,14 @@ packages:
       js-tokens: 4.0.0
     dev: true
 
-  /maath@0.10.7(@types/three@0.160.0)(three@0.160.1):
+  /maath@0.10.7(@types/three@0.161.2)(three@0.161.0):
     resolution: {integrity: sha512-zQ2xd7dNOIVTjAS+hj22fyj1EFYmOJX6tzKjZ92r6WDoq8hyFxjuGA2q950tmR4iC/EKXoMQdSipkaJVuUHDTg==}
     peerDependencies:
       '@types/three': '>=0.144.0'
       three: '>=0.144.0'
     dependencies:
-      '@types/three': 0.160.0
-      three: 0.160.1
+      '@types/three': 0.161.2
+      three: 0.161.0
     dev: true
 
   /meshoptimizer@0.18.1:
@@ -703,17 +703,17 @@ packages:
       react: 18.2.0
     dev: true
 
-  /three-mesh-ui@6.5.4(three@0.160.1):
+  /three-mesh-ui@6.5.4(three@0.161.0):
     resolution: {integrity: sha512-QA2KlHrbj7zGjKqpNXcwvini8g5gOXb44ExdupVpxCqmHln/sWNGOmN0yIa/HjnMGYJWP4M+NchTHvwUp+MWIw==}
     engines: {node: x.x.x}
     peerDependencies:
       three: '>=0.144.0'
     dependencies:
-      three: 0.160.1
+      three: 0.161.0
     dev: true
 
-  /three@0.160.1:
-    resolution: {integrity: sha512-Bgl2wPJypDOZ1stAxwfWAcJ0WQf7QzlptsxkjYiURPz+n5k4RBDLsq+6f9Y75TYxn6aHLcWz+JNmwTOXWrQTBQ==}
+  /three@0.161.0:
+    resolution: {integrity: sha512-LC28VFtjbOyEu5b93K0bNRLw1rQlMJ85lilKsYj6dgTu+7i17W+JCCEbvrpmNHF1F3NAUqDSWq50UD7w9H2xQw==}
     dev: true
 
   /typescript@5.3.3:

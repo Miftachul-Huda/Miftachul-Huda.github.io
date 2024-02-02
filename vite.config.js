@@ -8,10 +8,8 @@ export default defineConfig({
 		emptyOutDir : true,
 		assetsDir : 'res',
 		assetsInlineLimit : 0,
-		ssrEmitAssets : false,
+		ssrEmitAssets : true,
 		ssrManifest : false,
-		sourcemap : false,
-		minify : 'esbuild',
 	},
 	base: '/',
 })
