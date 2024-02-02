@@ -24,6 +24,7 @@ jobs:
   # Single deploy job since we're just deploying
   build:
     name: Build
+
     runs-on: ubuntu-latest
 
     steps:
@@ -62,7 +63,7 @@ jobs:
       run: pnpm build
         
     - name: Upload artifact
-      uses: actions/upload-pages-artifact@v2
+      uses: actions/upload-pages-artifact@v3
       with:
         path: './dist'
 
@@ -70,6 +71,10 @@ jobs:
     name: Deploy
     needs: build
 
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+      
     runs-on: ubuntu-latest
 
     steps:
