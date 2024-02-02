@@ -189,6 +189,7 @@ export default class UI {
 			item.addEventListener( 'pointerdown', () => {
 				
 				listAt = i
+				if ( isShowVideo ) this.video.play()
 				location.hash = `${ name[listAt] }|${ isShowVideo ? 'video' : 'image' }`
 
 			} )
@@ -210,8 +211,13 @@ export default class UI {
 		]
 
 		const bottomAction = [
-			() => location.hash = `${ name[listAt] }|video`,
-			() => location.hash = `${ name[listAt] }|image`,
+			() => {
+				location.hash = `${ name[listAt] }|video`
+				this.video.play()
+			},
+			() => {
+				location.hash = `${ name[listAt] }|image`
+			},
 			() => window.open( github[ listAt ], '_blank' ),
 			() => window.open( 'res/CV-2024.pdf', '_blank' )
 		]
