@@ -190,7 +190,6 @@ export default class UI {
 				
 				listAt = i
 				location.hash = `${ name[listAt] }|${ isShowVideo ? 'video' : 'image' }`
-				if ( isShowVideo ) this.video.play()
 
 			} )
 
@@ -211,15 +210,8 @@ export default class UI {
 		]
 
 		const bottomAction = [
-			() => {
-				if ( isShowVideo ) this.video.play()
-				if ( isShowVideo ) return
-				location.hash = `${ name[listAt] }|video`
-			},
-			() => {
-				if ( isShowImage ) return
-				location.hash = `${ name[listAt] }|image`
-			},
+			() => location.hash = `${ name[listAt] }|video`,
+			() => location.hash = `${ name[listAt] }|image`,
 			() => window.open( github[ listAt ], '_blank' ),
 			() => window.open( 'res/CV-2024.pdf', '_blank' )
 		]
