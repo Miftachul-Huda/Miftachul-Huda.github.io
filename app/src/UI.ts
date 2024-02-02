@@ -95,8 +95,8 @@ export default class UI {
 
 		let listAt = 0
 		let isVideoMap = false
-		let isShowVideo = false
-		let isShowImage = true
+		let isShowVideo = true
+		let isShowImage = false
 		
 		// ---- MONITOR UI ----
 
@@ -189,7 +189,8 @@ export default class UI {
 			item.addEventListener( 'pointerdown', () => {
 				
 				listAt = i
-				location.hash = name[listAt]
+				location.hash = `${ name[listAt] }|${ isShowVideo ? 'video' : 'image' }`
+				if ( isShowVideo ) this.video.play()
 
 			} )
 
@@ -206,24 +207,21 @@ export default class UI {
 			'Video',
 			'Image',
 			'Github',
+			'CV',
 		]
 
 		const bottomAction = [
 			() => {
-				isShowVideo = true
-				isShowImage = false
-				resizePrevNextButton()
-				changeVideoOrImage()
+				if ( isShowVideo ) this.video.play()
+				if ( isShowVideo ) return
+				location.hash = `${ name[listAt] }|video`
 			},
 			() => {
-				isVideoMap = false
-				isShowVideo = false
-				isShowImage = true
-				resizePrevNextButton()
-				changeVideoOrImage()
-				this.video.stop()
+				if ( isShowImage ) return
+				location.hash = `${ name[listAt] }|image`
 			},
-			() => window.open( github[ listAt ], '_blank' )
+			() => window.open( github[ listAt ], '_blank' ),
+			() => window.open( 'res/CV-2024.pdf', '_blank' )
 		]
 
 		const _bottomList = document.createElement( 'list' )
@@ -260,13 +258,30 @@ export default class UI {
 		const onHashChange = () => {
 
 			const hash = location.hash.substring(1).replace( '%20', ' ' )
-			const isFound = name.indexOf( hash )
+			const _name = hash.split( '|' )[0]
+			const mode = hash.split( '|' )[1]
+			const isFound = name.indexOf( _name )
 
-			if ( isFound != -1 ) {
+			if ( isFound == -1 ) return
+			if ( mode == 'video' && !isShowVideo ) {
+				
+				isShowVideo = true
+				isShowImage = false
+				resizePrevNextButton()
+
+			} else if ( mode == 'image' && !isShowImage ) {
+
+				isVideoMap = false
+				isShowVideo = false
+				isShowImage = true
+				this.video.stop()
+				resizePrevNextButton()
+			}
+
+			if ( mode == 'video' || mode == 'image' ) {
 
 				listAt = isFound
 				changeVideoOrImage()
-
 			}
 		}
 

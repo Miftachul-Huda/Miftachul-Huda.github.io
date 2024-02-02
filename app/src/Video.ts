@@ -45,6 +45,12 @@ export default class Video {
 
 	}
 
+	public play() {
+
+		this.el.play()
+		
+	}
+
 	// private next() {
 
 	// 	const object = this.raycaster.object
