@@ -33,6 +33,7 @@ export default class Loader extends LoadingManager {
 		loader.append( files )
 
 		this.onProgress = ( url, loaded, total ) => this.progress( percent, files, url, loaded, total )
+		this.onError = url => this.error( percent, files, url )
 	}
 
 	private progress( percent:HTMLElement, files:HTMLElement, url:string, loaded:number, total:number ) {
@@ -43,5 +44,12 @@ export default class Loader extends LoadingManager {
 		percent.textContent = `${ percentage.toFixed() }%`
 		files.textContent = `Loading: ${ url }`
 
+	}
+	private error( percent:HTMLElement, files:HTMLElement, url:string ) {
+
+		url = url.split( '/' ).pop()
+
+		percent.textContent = `ERROR`
+		files.textContent = `Error loading: ${ url }. Connection error!`
 	}
 }

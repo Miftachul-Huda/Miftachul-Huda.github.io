@@ -29,10 +29,10 @@ jobs:
     steps:
       
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@master
       
     - name: Install Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: 20
 
@@ -47,7 +47,7 @@ jobs:
       run: |
         echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-    - uses: actions/cache@v3
+    - uses: actions/cache@v4
       name: Setup pnpm cache
       with:
         path: ${{ env.STORE_PATH }}
@@ -60,44 +60,20 @@ jobs:
 
     - name: Build
       run: pnpm build
-
-    - name: Archive Production Artifact
-      uses: actions/upload-artifact@v2
+        
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v2
       with:
-        name: dist
-        path: dist
-
+        path: './dist'
 
   deploy:
     name: Deploy
     needs: build
 
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
     runs-on: ubuntu-latest
 
     steps:
 
-    - name: Checkout Repo
-      uses: actions/checkout@master
-
-    - name: Download Artifact
-      uses: actions/download-artifact@v2
-      with:
-        name: dist
-        path: dist
-
-    - name: Setup Pages
-      uses: actions/configure-pages@v3
-
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v2
-      with:
-        # Upload dist repository
-        path: './dist'
-
     - name: Deploy to GitHub Pages
       id: deployment
-      uses: actions/deploy-pages@v2
+      uses: actions/deploy-pages@v4
