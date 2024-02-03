@@ -49,10 +49,10 @@ export default class Image {
 				url.image.Fuzzy_5,
 				url.image.Fuzzy_6
 			],
-			[
-				url.image.Indiego_1,
-				url.image.Indiego_2
-			],
+			// [
+			// 	url.image.Indiego_1,
+			// 	url.image.Indiego_2
+			// ],
 			[
 				url.image.KuisArab_1,
 				url.image.KuisArab_2,
@@ -73,12 +73,12 @@ export default class Image {
 				url.image.PhoneForest_9,
 				url.image.PhoneForest_10
 			],
-			[
-				url.image.Premiere_1,
-				url.image.Premiere_2,
-				url.image.Premiere_3,
-				url.image.Premiere_4
-			],
+			// [
+			// 	url.image.Premiere_1,
+			// 	url.image.Premiere_2,
+			// 	url.image.Premiere_3,
+			// 	url.image.Premiere_4
+			// ],
 			[
 				url.image.Restoran_1,
 				url.image.Restoran_2,
@@ -105,17 +105,17 @@ export default class Image {
 				url.image.Videografi_7,
 				url.image.Videografi_8
 			],
-			[
-				url.image.WHStitching_1,
-				url.image.WHStitching_2,
-				url.image.WHStitching_3,
-				url.image.WHStitching_4,
-				url.image.WHStitching_5,
-				url.image.WHStitching_6,
-				url.image.WHStitching_7,
-				url.image.WHStitching_8,
-				url.image.WHStitching_9
-			],
+			// [
+			// 	url.image.WHStitching_1,
+			// 	url.image.WHStitching_2,
+			// 	url.image.WHStitching_3,
+			// 	url.image.WHStitching_4,
+			// 	url.image.WHStitching_5,
+			// 	url.image.WHStitching_6,
+			// 	url.image.WHStitching_7,
+			// 	url.image.WHStitching_8,
+			// 	url.image.WHStitching_9
+			// ],
 			[
 				url.image.VideoNotAvailable
 			]
@@ -125,7 +125,7 @@ export default class Image {
 
 	public change( index:number ) {
 
-		if ( index == -1 ) this.listAt = [ 10, 0]
+		if ( index == -1 ) this.listAt = [ this.imageList.length - 1, 0]
 		else this.listAt = [index, 0 ]
 		this.changeMap( this.listAt[1] )
 

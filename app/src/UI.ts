@@ -45,53 +45,53 @@ export default class UI {
 			'Agung Tech',
 			'Buku Fisika',
 			'Fuzzy',
-			'Indiego',
+			// 'Indiego',
 			'Kuis Arab',
 			'Phone Forest',
-			'Premiere Tutorial',
+			// 'Premiere Tutorial',
 			'Restoran',
 			'Videografi',
-			'WH Stitching'
+			// 'WH Stitching'
 		]
 
 		const isVideoAvailable = [
-			true,
-			true,
-			true,
-			true,
-			true,
-			true,
-			false,
-			true,
-			true,
-			false
+			true, // Agung Tech
+			true, // Buku Fisika
+			true, // Fuzzy
+			// true, // Indiego
+			true, // Kuis Arab
+			true, // Phone Forest
+			// false, // Premiere Tutorial
+			true, // Restoran
+			true, // Videografi
+			// false // WH Stitching
 		]
 
 		const link = [
 			this.url.video.AgungTech,
 			this.url.video.BukuFisika,
 			this.url.video.Fuzzy,
-			this.url.video.Indiego,
+			// this.url.video.Indiego,
 			this.url.video.KuisArab,
 			this.url.video.PhoneForest,
-			'',
+			// '',
 			this.url.video.Restoran,
 			this.url.video.Videografi,
-			''
+			// ''
 		]
 
-		const github = [
-			this.url.github.AgungTech,
-			this.url.github.BukuFisika,
-			this.url.github.Fuzzy,
-			this.url.github.Indiego,
-			this.url.github.KuisArab,
-			this.url.github.PhoneForest,
-			this.url.github.Premiere,
-			this.url.github.Restoran,
-			this.url.github.Videografi,
-			this.url.github.WHStitching
-		]
+		// const github = [
+		// 	this.url.github.AgungTech,
+		// 	this.url.github.BukuFisika,
+		// 	this.url.github.Fuzzy,
+		// 	this.url.github.Indiego,
+		// 	this.url.github.KuisArab,
+		// 	this.url.github.PhoneForest,
+		// 	this.url.github.Premiere,
+		// 	this.url.github.Restoran,
+		// 	this.url.github.Videografi,
+		// 	this.url.github.WHStitching
+		// ]
 
 		let listAt = 0
 		let isVideoMap = false
@@ -198,7 +198,7 @@ export default class UI {
 
 		} )
 
-		_topList.style.width = topListWidth - 30 + 'px'
+		_topList.style.width = topListWidth + 30 + 'px'
 		_topList.style.marginLeft = (_topList.offsetWidth / -2) + 'px'
 
 		// ---- BOTTOM LIST ----
@@ -206,7 +206,7 @@ export default class UI {
 		const bottomName = [
 			'Video',
 			'Image',
-			'Github',
+			// 'Github',
 			'CV',
 		]
 
@@ -218,7 +218,7 @@ export default class UI {
 			() => {
 				location.hash = `${ name[listAt] }|image`
 			},
-			() => window.open( github[ listAt ], '_blank' ),
+			// () => window.open( github[ listAt ], '_blank' ),
 			() => window.open( 'res/CV-2024.pdf', '_blank' )
 		]
 
