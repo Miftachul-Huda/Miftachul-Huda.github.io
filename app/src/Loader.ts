@@ -18,7 +18,7 @@ export default class Loader extends LoadingManager {
 		this.glbLoader.setDRACOLoader( this.dracoLoader )
 
 		const title:HTMLElement = document.createElement( 'text' )
-		title.textContent = 'PORTFOLIO'
+		title.textContent = 'PORTOFOLIO'
 		title.setAttribute( 'title', '' )
 		loader.append( title )
 
