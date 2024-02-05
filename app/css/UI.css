@@ -75,7 +75,8 @@ ui[monitor] > list > item {
 	transition: background .2s, color .2s;
 }
 ui[monitor] > list > item:hover,
-ui[monitor] > button:hover {
+ui[monitor] > button:hover,
+ui[monitor] > list > item[active] {
 	background-color: var(--label_active_bg_col);
 	color: var(--active_col)
 }

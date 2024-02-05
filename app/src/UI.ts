@@ -167,9 +167,17 @@ export default class UI {
 			}
 		}
 
+		// ---- ITEM LIST VARIABLES ----
+
+		let topItem:HTMLElement[] = []
+		let bottomItem:HTMLElement[] = []
+
+
 		// ---- CHANGE VIDEO OR IMAGE
 
 		const changeVideoOrImage = () => {
+
+			topItem[listAt].setAttribute( 'active', '' )
 
 			if ( isShowVideo ) {
 
@@ -180,6 +188,8 @@ export default class UI {
 						isVideoMap = true
 					}
 					
+					bottomItem[1].removeAttribute( 'active' )
+					bottomItem[0].setAttribute( 'active', '' )
 					this.video.change( link[listAt] )
 				}
 				else {
@@ -189,8 +199,12 @@ export default class UI {
 
 				}
 
+			} else if ( isShowImage ) {
+
+				bottomItem[0].removeAttribute( 'active' )
+				bottomItem[1].setAttribute( 'active', '' )
+				this.image.change( listAt )
 			}
-			if ( isShowImage ) this.image.change( listAt )
 		
 		}
 
@@ -204,19 +218,21 @@ export default class UI {
 
 		name.forEach( (v,i) => {
 
-			const item = document.createElement( 'item' )
-			_topList.append( item )
-			item.textContent = v
+			topItem[i] = document.createElement( 'item' )
+			_topList.append( topItem[i] )
+			topItem[i].textContent = v
 
-			item.addEventListener( 'pointerdown', () => {
+			topItem[i].addEventListener( 'pointerdown', () => {
 				
+				if ( listAt != -1 ) topItem[listAt].removeAttribute( 'active' )
 				listAt = i
+				
 				if ( isShowVideo ) this.video.play()
 				location.hash = `${ name[listAt] }|${ isShowVideo ? 'video' : 'image' }`
 
 			} )
 
-			topListWidth += item.offsetWidth
+			topListWidth += topItem[i].offsetWidth
 
 		} )
 
@@ -234,8 +250,8 @@ export default class UI {
 
 		const bottomAction = [
 			() => {
-				location.hash = `${ name[ listAt ] }|video`
 				this.video.play()
+				location.hash = `${ name[ listAt ] }|video`
 			},
 			() => {
 				location.hash = `${ name[ listAt ] }|image`
@@ -254,17 +270,17 @@ export default class UI {
 
 		bottomName.forEach( ( v, i ) => {
 
-			const item = document.createElement( 'item' )
-			_bottomList.append( item )
-			item.textContent = v
+			bottomItem[i] = document.createElement( 'item' )
+			_bottomList.append( bottomItem[i] )
+			bottomItem[i].textContent = v
 
-			item.addEventListener( 'pointerdown', () => bottomAction[ i ]() )
+			bottomItem[i].addEventListener( 'pointerdown', () => bottomAction[ i ]() )
 
-			bottomListWidth += item.offsetWidth
+			bottomListWidth += bottomItem[i].offsetWidth
 
-			if ( i == 0 ) _video = item
-			if ( i == 1 ) _image = item
-			if ( i == 2 ) _github = item
+			if ( i == 0 ) _video = bottomItem[i]
+			if ( i == 1 ) _image = bottomItem[i]
+			if ( i == 2 ) _github = bottomItem[i]
 
 		} )
 
@@ -322,6 +338,12 @@ export default class UI {
 		const show = () => {
 
 			if ( location.hash != '' ) onHashChange()
+			else {
+
+				listAt = 0
+				location.hash = `${ name[listAt] }|${ isShowVideo ? 'video' : 'image' }`
+
+			}
 
 			label.hide()
 
@@ -441,23 +463,6 @@ export default class UI {
 		_name.textContent = name
 		label.position.copy( position )
 
-		const show = () => {
-
-			_label.style.opacity = '1'
-			_label.style.display = ''
-			_label.addEventListener( 'pointerover', onHover )
-			_label.addEventListener( 'pointerout', onOut )		
-
-		}
-		const hide = () => {
-
-			_label.style.opacity = '0'
-			_label.style.display = 'none'
-			_label.removeEventListener( 'pointerover', onHover )
-			_label.removeEventListener( 'pointerout', onOut )
-
-		}
-
 		const onHover = () => {
 			
 			_label.style.overflow = 'visible'
@@ -481,7 +486,25 @@ export default class UI {
 
 		}
 
-		_label.addEventListener( 'pointerdown', onClick )
+		const show = () => {
+
+			_label.style.opacity = '1'
+			_label.style.display = ''
+			_label.addEventListener( 'pointerover', onHover )
+			_label.addEventListener( 'pointerout', onOut )
+			_label.addEventListener( 'pointerdown', onClick )
+
+		}
+
+		const hide = () => {
+
+			_label.style.opacity = '0'
+			_label.style.display = 'none'
+			_label.removeEventListener( 'pointerover', onHover )
+			_label.removeEventListener( 'pointerout', onOut )
+			_label.removeEventListener( 'pointerdown', onClick )
+
+		}
 
 		return { show, hide } 
 
