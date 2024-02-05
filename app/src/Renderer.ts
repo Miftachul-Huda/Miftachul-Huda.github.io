@@ -1,6 +1,6 @@
 import Scene from './Scene'
 import Camera from './Camera'
-import { WebGLRenderer, ACESFilmicToneMapping } from 'three'
+import { WebGLRenderer, NoToneMapping } from 'three'
 import { CSS2DRenderer } from 'three/addons/renderers/CSS2DRenderer.js'
 import { CSS3DRenderer } from 'three/addons/renderers/CSS3DRenderer.js'
 
@@ -19,7 +19,7 @@ export default class Renderer {
 
 		this.webgl = new WebGLRenderer( { antialias : true } )
 		this.webgl.setPixelRatio( devicePixelRatio )
-		this.webgl.toneMapping = ACESFilmicToneMapping
+		this.webgl.toneMapping = NoToneMapping
 		this.webgl.toneMappingExposure = 1
 		this.webgl.domElement.className = 'webgl'
 		container.append( this.webgl.domElement )

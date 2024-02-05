@@ -80,20 +80,20 @@ export default class UI {
 			// ''
 		]
 
-		// const github = [
-		// 	this.url.github.AgungTech,
-		// 	this.url.github.BukuFisika,
-		// 	this.url.github.Fuzzy,
-		// 	this.url.github.Indiego,
-		// 	this.url.github.KuisArab,
-		// 	this.url.github.PhoneForest,
-		// 	this.url.github.Premiere,
-		// 	this.url.github.Restoran,
-		// 	this.url.github.Videografi,
-		// 	this.url.github.WHStitching
-		// ]
+		const github = [
+			'',	// this.url.github.AgungTech,
+			'',	// this.url.github.BukuFisika,
+			'',	// this.url.github.Fuzzy,
+			// '',	// this.url.github.Indiego,
+			'',	// this.url.github.KuisArab,
+			'',	// this.url.github.PhoneForest,
+			// '',	// this.url.github.Premiere,
+			'',	// this.url.github.Restoran,
+			this.url.github.Videografi,
+			// '',	// this.url.github.WHStitching
+		]
 
-		let listAt = 0
+		let listAt = -1
 		let isVideoMap = false
 		let isShowVideo = true
 		let isShowImage = false
@@ -144,6 +144,28 @@ export default class UI {
 		}
 
 		resizePrevNextButton()
+
+		// ---- BOTTOM LIST SHOW HIDE
+		
+		let _video:HTMLElement
+		let _image:HTMLElement
+		let _github:HTMLElement
+
+		const showHideBottomList = () => {
+
+			if ( listAt != -1 ) {
+
+
+				_video.style.display = isVideoAvailable[ listAt ] == true ? '' : 'none'
+				_image.style.display = ''
+				_github.style.display = github[ listAt ] != '' ? '' : 'none'
+
+			} else {
+
+				_video.style.display = _image.style.display = _github.style.display = 'none'
+
+			}
+		}
 
 		// ---- CHANGE VIDEO OR IMAGE
 
@@ -206,19 +228,21 @@ export default class UI {
 		const bottomName = [
 			'Video',
 			'Image',
-			// 'Github',
+			'Github',
 			'CV',
 		]
 
 		const bottomAction = [
 			() => {
-				location.hash = `${ name[listAt] }|video`
+				location.hash = `${ name[ listAt ] }|video`
 				this.video.play()
 			},
 			() => {
-				location.hash = `${ name[listAt] }|image`
+				location.hash = `${ name[ listAt ] }|image`
 			},
-			// () => window.open( github[ listAt ], '_blank' ),
+			() => {
+				if ( github[ listAt ] != '' ) window.open( github[ listAt ], '_blank' )
+			},
 			() => window.open( 'res/CV-2024.pdf', '_blank' )
 		]
 
@@ -228,7 +252,7 @@ export default class UI {
 
 		let bottomListWidth = 0
 
-		bottomName.forEach( (v,i) => {
+		bottomName.forEach( ( v, i ) => {
 
 			const item = document.createElement( 'item' )
 			_bottomList.append( item )
@@ -237,6 +261,10 @@ export default class UI {
 			item.addEventListener( 'pointerdown', () => bottomAction[ i ]() )
 
 			bottomListWidth += item.offsetWidth
+
+			if ( i == 0 ) _video = item
+			if ( i == 1 ) _image = item
+			if ( i == 2 ) _github = item
 
 		} )
 
@@ -249,8 +277,9 @@ export default class UI {
 
 		}
 
+		showHideBottomList()
 		bottomListResize()
-		
+
 		// ---- HASHTAG LISTENER ----
 
 		const onHashChange = () => {
@@ -280,6 +309,7 @@ export default class UI {
 
 				listAt = isFound
 				changeVideoOrImage()
+				showHideBottomList()
 			}
 		}
 

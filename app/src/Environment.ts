@@ -24,7 +24,7 @@ export default class Environment {
 		this.texture.colorSpace = SRGBColorSpace
 		scene.background = this.texture
 		scene.environment = this.texture
-		const lamp = new PointLight( 0xffffff, 1000, 28, 1 )
+		const lamp = new PointLight( 0xffffff, 400, 28, 1 )
 		lamp.position.set( 0, 30, 20 )
 		scene.add( lamp )
 		const sun = new DirectionalLight( 0xffffff, 20 )

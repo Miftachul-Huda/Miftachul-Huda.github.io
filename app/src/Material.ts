@@ -1,12 +1,15 @@
-import { FrontSide, MeshStandardMaterial, SRGBColorSpace, VideoTexture } from 'three'
+import URLs from './URLs'
+import { FrontSide, MeshStandardMaterial, NoColorSpace, SRGBColorSpace, TextureLoader, VideoTexture } from 'three'
 
 export default class Material {
 
+	private texLoader:TextureLoader
 	public screenVideoMap:VideoTexture
 	public changeScreenMap:Function
 	
-	constructor( videoEl:HTMLVideoElement ) {
+	constructor( texLoader:TextureLoader, videoEl:HTMLVideoElement ) {
 
+		this.texLoader = texLoader
 		this.screenVideoMap = new VideoTexture( videoEl )
 	
 	}
@@ -34,7 +37,15 @@ export default class Material {
 	}
 	public desk( desk_base:MeshStandardMaterial, desk_top:MeshStandardMaterial, desk_bottom:MeshStandardMaterial ) {
 
-		desk_base.side = desk_top.side = desk_bottom.side = FrontSide	
+		const url = new URLs
+		const desk_base_ao = this.texLoader.load( url.texture.DeskBase_AO )
+
+		desk_base_ao.flipY  = false
+		desk_base_ao.colorSpace = NoColorSpace
+
+		desk_base.side = desk_top.side = desk_bottom.side = FrontSide
+		desk_base.aoMap = desk_base_ao
+		desk_base.aoMapIntensity = 0
 		
 	}
 

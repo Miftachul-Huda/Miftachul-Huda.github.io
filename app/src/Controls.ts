@@ -34,11 +34,11 @@ export default class Controls {
 			this.camera.lookAt( screen.position )
 			this.controls.target = this.target
 			this.controls.minDistance = 4
-			this.controls.maxDistance = 40
-			this.controls.minAzimuthAngle = -2
-			this.controls.maxAzimuthAngle = 2
-			this.controls.minPolarAngle = .3
-			this.controls.maxPolarAngle = 2
+			this.controls.maxDistance = 60
+			// this.controls.minAzimuthAngle = -2
+			// this.controls.maxAzimuthAngle = 2
+			// this.controls.minPolarAngle = .3
+			// this.controls.maxPolarAngle = 2
 		
 		}
 	}

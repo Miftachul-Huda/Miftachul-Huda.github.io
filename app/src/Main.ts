@@ -30,7 +30,7 @@ export default class Main {
 	private renderer 	= new Renderer( this.object.container, this.scene, this.camera )
 	private raycaster = new Raycaster( this.scene, this.camera )
 	private video 		= new Video()
-	private material 	= new Material( this.video.el )
+	private material 	= new Material( this.loader.texLoader, this.video.el )
 	private image 		= new Image( this.material, this.loader )
 	private model 		= new Model( this.scene, this.loader.glbLoader, this.material )
 	private controls 	= new Controls( this.camera.target, this.renderer.css2d.domElement, this.model )

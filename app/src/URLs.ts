@@ -1,5 +1,6 @@
 import anim_Portofolio from '../anim/Portofolio.json'
 import glb_Portofolio from '../glb/Portofolio.glb?url'
+import tex_DeskBase_AO from '../tex/Desk_Base_AO.png'
 import img_VideoNotAvailable from '../img/VideoNotAvailable.webp'
 import img_AgungTech_1 from '../img/agung/1.webp'
 import img_AgungTech_2 from '../img/agung/2.webp'
@@ -21,8 +22,8 @@ import img_Fuzzy_3 from '../img/fuzzy/3.webp'
 import img_Fuzzy_4 from '../img/fuzzy/4.webp'
 import img_Fuzzy_5 from '../img/fuzzy/5.webp'
 import img_Fuzzy_6 from '../img/fuzzy/6.webp'
-import img_Indiego_1 from '../img/indiego/1.webp'
-import img_Indiego_2 from '../img/indiego/2.webp'
+// import img_Indiego_1 from '../img/indiego/1.webp'
+// import img_Indiego_2 from '../img/indiego/2.webp'
 import img_KuisArab_1 from '../img/arab/1.webp'
 import img_KuisArab_2 from '../img/arab/2.webp'
 import img_KuisArab_3 from '../img/arab/3.webp'
@@ -39,10 +40,10 @@ import img_PhoneForest_7 from '../img/phone/7.webp'
 import img_PhoneForest_8 from '../img/phone/8.webp'
 import img_PhoneForest_9 from '../img/phone/9.webp'
 import img_PhoneForest_10 from '../img/phone/10.webp'
-import img_Premiere_1 from '../img/premiere/1.webp'
-import img_Premiere_2 from '../img/premiere/2.webp'
-import img_Premiere_3 from '../img/premiere/3.webp'
-import img_Premiere_4 from '../img/premiere/4.webp'
+// import img_Premiere_1 from '../img/premiere/1.webp'
+// import img_Premiere_2 from '../img/premiere/2.webp'
+// import img_Premiere_3 from '../img/premiere/3.webp'
+// import img_Premiere_4 from '../img/premiere/4.webp'
 import img_Restoran_1 from '../img/resto/1.webp'
 import img_Restoran_2 from '../img/resto/2.webp'
 import img_Restoran_3 from '../img/resto/3.webp'
@@ -65,15 +66,15 @@ import img_Videografi_5 from '../img/videografi/5.webp'
 import img_Videografi_6 from '../img/videografi/6.webp'
 import img_Videografi_7 from '../img/videografi/7.webp'
 import img_Videografi_8 from '../img/videografi/8.webp'
-import img_WHStitching_1 from '../img/stitching/1.webp'
-import img_WHStitching_2 from '../img/stitching/2.webp'
-import img_WHStitching_3 from '../img/stitching/3.webp'
-import img_WHStitching_4 from '../img/stitching/4.webp'
-import img_WHStitching_5 from '../img/stitching/5.webp'
-import img_WHStitching_6 from '../img/stitching/6.webp'
-import img_WHStitching_7 from '../img/stitching/7.webp'
-import img_WHStitching_8 from '../img/stitching/8.webp'
-import img_WHStitching_9 from '../img/stitching/9.webp'
+// import img_WHStitching_1 from '../img/stitching/1.webp'
+// import img_WHStitching_2 from '../img/stitching/2.webp'
+// import img_WHStitching_3 from '../img/stitching/3.webp'
+// import img_WHStitching_4 from '../img/stitching/4.webp'
+// import img_WHStitching_5 from '../img/stitching/5.webp'
+// import img_WHStitching_6 from '../img/stitching/6.webp'
+// import img_WHStitching_7 from '../img/stitching/7.webp'
+// import img_WHStitching_8 from '../img/stitching/8.webp'
+// import img_WHStitching_9 from '../img/stitching/9.webp'
 import vid_AgungTech from '../vid/Agung Tech.webm'
 import vid_BukuFisika from '../vid/Buku Fisika.webm'
 import vid_Fuzzy from '../vid/Fuzzy.webm'
@@ -111,6 +112,10 @@ export default class URLs {
 		Portofolio			: glb_Portofolio,
 	}
 
+	public texture = {
+		DeskBase_AO			: tex_DeskBase_AO
+	}
+
 	public image		= {
 		VideoNotAvailable: img_VideoNotAvailable,
 		AgungTech_1			: img_AgungTech_1,
@@ -133,8 +138,8 @@ export default class URLs {
 		Fuzzy_4					: img_Fuzzy_4,
 		Fuzzy_5					: img_Fuzzy_5,
 		Fuzzy_6					: img_Fuzzy_6,
-		Indiego_1				: img_Indiego_1,
-		Indiego_2				: img_Indiego_2,
+		// Indiego_1				: img_Indiego_1,
+		// Indiego_2				: img_Indiego_2,
 		KuisArab_1			: img_KuisArab_1,
 		KuisArab_2			: img_KuisArab_2,
 		KuisArab_3			: img_KuisArab_3,
@@ -151,10 +156,10 @@ export default class URLs {
 		PhoneForest_8		: img_PhoneForest_8,
 		PhoneForest_9		: img_PhoneForest_9,
 		PhoneForest_10	: img_PhoneForest_10,
-		Premiere_1			: img_Premiere_1,
-		Premiere_2			: img_Premiere_2,
-		Premiere_3			: img_Premiere_3,
-		Premiere_4			: img_Premiere_4,
+		// Premiere_1			: img_Premiere_1,
+		// Premiere_2			: img_Premiere_2,
+		// Premiere_3			: img_Premiere_3,
+		// Premiere_4			: img_Premiere_4,
 		Restoran_1			: img_Restoran_1,
 		Restoran_2			: img_Restoran_2,
 		Restoran_3			: img_Restoran_3,
@@ -177,15 +182,15 @@ export default class URLs {
 		Videografi_6		: img_Videografi_6,
 		Videografi_7		: img_Videografi_7,
 		Videografi_8		: img_Videografi_8,
-		WHStitching_1		: img_WHStitching_1,
-		WHStitching_2		: img_WHStitching_2,
-		WHStitching_3		: img_WHStitching_3,
-		WHStitching_4		: img_WHStitching_4,
-		WHStitching_5		: img_WHStitching_5,
-		WHStitching_6		: img_WHStitching_6,
-		WHStitching_7		: img_WHStitching_7,
-		WHStitching_8		: img_WHStitching_8,
-		WHStitching_9		: img_WHStitching_9,
+		// WHStitching_1		: img_WHStitching_1,
+		// WHStitching_2		: img_WHStitching_2,
+		// WHStitching_3		: img_WHStitching_3,
+		// WHStitching_4		: img_WHStitching_4,
+		// WHStitching_5		: img_WHStitching_5,
+		// WHStitching_6		: img_WHStitching_6,
+		// WHStitching_7		: img_WHStitching_7,
+		// WHStitching_8		: img_WHStitching_8,
+		// WHStitching_9		: img_WHStitching_9,
 	}
 
 	public video		= {
